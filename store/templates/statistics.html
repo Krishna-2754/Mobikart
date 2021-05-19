@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load custom_filter %}
+<style>
+    h1 {
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+h1::before, h1::after {
+  content: '';
+  border-top: 6px double;
+}
+
+/* everything below is for demo appearances and not important to the concept */
+
+body, h1 {
+  margin: 0;
+}
+
+
+@media (max-width: 400px) {
+  h1 { font-size: 1.5rem; }
+}
+.column{
+  min-height:170px;
+  margin: 0;
+  padding: 1.7rem 1.2rem;
+  border: none;
+  border-radius: 0;
+  color:rgba(0,0,0,1);
+  letter-spacing: .05rem;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 0 21px rgba(0,0,0,.27);
+  .txt{
+    margin-left:-3rem;
+    z-index: 1;
+    h1{
+      font-size:1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+    p{
+      font-size:.7rem;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 0rem;
+      margin-top:33px;
+      opacity:0;
+      color:rgba(255,255,255,1);
+    }
+  }
+  a{
+    z-index:3;
+    font-size: .7rem;
+    color:rgba(0,0,0,1);
+    margin-left:1rem;
+    position:relative;
+    bottom: -.5rem;
+    text-transform: uppercase;
+    &:after {
+      content:"";
+      display: inline-block;
+      height: 0.5em;
+      width: 0;
+      margin-right: -100%;
+      margin-left: 10px;
+      border-top: 1px solid rgba(255,255,255,1);
+      transition: .5s;
+    }
+  }
+  .ico-card{
+    position:absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  i{
+    position: relative;
+    right: -50%;
+    top:60%;
+    font-size: 12rem;
+    line-height: 0;
+    opacity: .2;
+    color:rgba(255,255,255,1);
+    z-index: 0;
+   }
+}
+.table{
+  min-height:170px;
+  margin: 0;
+  padding: 1.7rem 1.2rem;
+  border: none;
+  border-radius: 0;
+  color:rgba(0,0,0,1);
+  letter-spacing: .05rem;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 0 21px rgba(0,0,0,.27);
+  .txt{
+    margin-left:-3rem;
+    z-index: 1;
+    h1{
+      font-size:1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+    p{
+      font-size:.7rem;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 0rem;
+      margin-top:33px;
+      opacity:0;
+      color:rgba(255,255,255,1);
+    }
+  }
+  a{
+    z-index:3;
+    font-size: .7rem;
+    color:rgba(0,0,0,1);
+    margin-left:1rem;
+    position:relative;
+    bottom: -.5rem;
+    text-transform: uppercase;
+    &:after {
+      content:"";
+      display: inline-block;
+      height: 0.5em;
+      width: 0;
+      margin-right: -100%;
+      margin-left: 10px;
+      border-top: 1px solid rgba(255,255,255,1);
+      transition: .5s;
+    }
+  }
+  .ico-card{
+    position:absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  i{
+    position: relative;
+    right: -50%;
+    top:60%;
+    font-size: 12rem;
+    line-height: 0;
+    opacity: .2;
+    color:rgba(255,255,255,1);
+    z-index: 0;
+   }
+}
+
+</style>
+<div class="container">
+   <div class="border rounded p-4 m-4 column" style="background-color: #48D1CC">
+        <h1>STATISTICS RELATED TO OUR GLOBAL WEBSITE</h1>
+   </div>
+</div>
+<div class="container">
+   <div class="border rounded p-4 m-4 " style="background-color: #FFFAFA">
+        <h1>Orders info</h1>
+       <hr>
+       <p class="display-8 pl-4 ml-4">Global Orders Till Now: {{tot_orders}}</p>
+        <p class="display-8 pl-4 ml-4">Your Orders  : {{urs}}</p>
+       <p class="display-8 pl-4 ml-4">Total Products Available  : {{tot_products}}</p>
+   </div>
+</div>
+<div class="container">
+   <div class="border rounded p-4 m-4" style="background-color: #FFFAFA">
+       <h1>Global Products sale</h1>
+       <hr>
+      {% if chart %}
+        <img src="data:image/png;base64, {{chart|safe}}">
+       <img src="data:image/png;base64, {{chart2|safe}}">
+      {% endif %}
+   </div>
+</div>
+<div class="container">
+   <div class="border rounded p-4 m-4 column" style="background-color: #48D1CC">
+       <h1>List of Products in our website!</h1>
+       <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sno.</th>
+                    <th>Image</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for product in products %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price|currency}}</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+        </table>
+        <hr>
+   </div>
+</div>
+{% endblock %}

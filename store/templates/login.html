@@ -1,0 +1,404 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<style>
+    footer{
+	background-color: #DDA0DD;
+		}
+</style>
+<style>
+
+
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: #0e6cc4;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+/*waves****************************/
+
+
+.box {
+
+  top: 0;
+  transform: rotate(80deg);
+  left: 0;
+}
+
+.wave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: .4;
+  position: absolute;
+  top: 3%;
+  left: 10%;
+  background: #0af;
+  width: 1500px;
+  height: 1300px;
+  margin-left: -150px;
+  margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  animation: drift 7000ms infinite linear;
+}
+
+.wave.-three {
+  animation: drift 7500ms infinite linear;
+  position: fixed;
+  background-color: #77daff;
+}
+
+.wave.-two {
+  animation: drift 3000ms infinite linear;
+  opacity: .1;
+  background: black;
+  position: fixed;
+}
+
+.box:after {
+  content: '';
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 11;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes drift {
+  from { transform: rotate(0deg); }
+  from { transform: rotate(360deg); }
+}
+
+/*LOADING SPACE*/
+
+.contain {
+  animation-delay: 4s;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  background: #25a7d7;
+  background: -webkit-linear-gradient(#25a7d7, #2962FF);
+  background: linear-gradient(#25a7d7, #25a7d7);
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 5px;
+}
+
+/*Animation*/
+.icon:nth-child(2) img {-webkit-animation-delay: 0.2s;animation-delay: 0.2s}
+.icon:nth-child(3) img {-webkit-animation-delay: 0.3s;animation-delay: 0.3s}
+.icon:nth-child(4) img {-webkit-animation-delay: 0.4s;animation-delay: 0.4s}
+
+.icon img {
+  -webkit-animation: anim 2s ease infinite;
+  animation: anim 2s ease infinite;
+  -webkit-transform: scale(0,0) rotateZ(180deg);
+  transform: scale(0,0) rotateZ(180deg);
+}
+
+@-webkit-keyframes anim{
+  0% {
+    -webkit-transform: scale(0,0) rotateZ(-90deg);
+    transform: scale(0,0) rotateZ(-90deg);opacity:0
+  }
+  30% {
+    -webkit-transform: scale(1,1) rotateZ(0deg);
+    transform: scale(1,1) rotateZ(0deg);opacity:1
+  }
+  50% {
+    -webkit-transform: scale(1,1) rotateZ(0deg);
+    transform: scale(1,1) rotateZ(0deg);opacity:1
+  }
+  80% {
+    -webkit-transform: scale(0,0) rotateZ(90deg);
+    transform: scale(0,0) rotateZ(90deg);opacity:0
+  }
+}
+
+@keyframes anim{
+  0% {
+    -webkit-transform: scale(0,0) rotateZ(-90deg);
+    transform: scale(0,0) rotateZ(-90deg);opacity:0
+  }
+  30% {
+    -webkit-transform: scale(1,1) rotateZ(0deg);transform: scale(1,1) rotateZ(0deg);opacity:1
+  }
+  50% {
+    -webkit-transform: scale(1,1) rotateZ(0deg);
+    transform: scale(1,1) rotateZ(0deg);opacity:1
+  }
+  80% {
+    -webkit-transform: scale(0,0) rotateZ(90deg);
+    transform: scale(0,0) rotateZ(90deg);opacity:0
+  }
+}
+.table{
+  min-height:170px;
+  margin: 0;
+  padding: 1.7rem 1.2rem;
+  border: none;
+  border-radius: 0;
+  color:rgba(0,0,0,1);
+  letter-spacing: .05rem;
+  font-family: 'Oswald', sans-serif;
+  box-shadow: 0 0 21px rgba(0,0,0,.27);
+  .txt{
+    margin-left:-3rem;
+    z-index: 1;
+    h1{
+      font-size:1.5rem;
+      font-weight: 300;
+      text-transform: uppercase;
+    }
+    p{
+      font-size:.7rem;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 0rem;
+      margin-top:33px;
+      opacity:0;
+      color:rgba(255,255,255,1);
+    }
+  }
+  a{
+    z-index:3;
+    font-size: .7rem;
+    color:rgba(0,0,0,1);
+    margin-left:1rem;
+    position:relative;
+    bottom: -.5rem;
+    text-transform: uppercase;
+    &:after {
+      content:"";
+      display: inline-block;
+      height: 0.5em;
+      width: 0;
+      margin-right: -100%;
+      margin-left: 10px;
+      border-top: 1px solid rgba(255,255,255,1);
+      transition: .5s;
+    }
+  }
+  .ico-card{
+    position:absolute;
+    top: 0;
+    left:0;
+    bottom:0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  i{
+    position: relative;
+    right: -50%;
+    top:60%;
+    font-size: 12rem;
+    line-height: 0;
+    opacity: .2;
+    color:rgba(255,255,255,1);
+    z-index: 0;
+   }
+}
+
+
+
+
+</style>
+
+<div class="container">
+    <div class='box'>
+  <div class='wave -one'></div>
+  <div class='wave -two'></div>
+  <div class='wave -three'></div>
+</div>
+    <div class="p-4 m-4" >
+        <div class="col-lg-4 mt-4 border mb-4 mx-auto rounded pt-4"  style='background-color: #7FFFD4';
+">
+            <div class="text-center col">
+            
+                <img 
+                src="https://i.ibb.co/fCNXkmm/sdp-logo.png" alt=""
+                class="" style="height: 150px;">
+            <!-- <hr> -->
+            <div class="display-8">Create An Account</div>
+            <hr>
+            </div>
+            <h3 hidden class="alert alert-light border mt-4 mb-4 rounded">Login Here</h3>
+            <form action="/login" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="example@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" placeholder="********">
+                </div>
+
+                <hr>
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info col-lg-4" type="submit" value="Login">
+                </div>
+
+                
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+
+                    <!--Footer-->
+                    <footer class="page-footer deep-purple center-on-small-only pt-0">
+
+                        <!--Footer Links-->
+                        <div class="container">
+
+                            <!--Grid row-->
+                            <div class="row pt-5 mb-3 text-center d-flex justify-content-center">
+
+                                <!--Grid column-->
+                                <div class="col-md-2 mb-3">
+                                    <h6 class="title font-bold"><a href="#!">About us</a></h6>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-2 mb-3">
+                                    <h6 class="title font-bold"><a href="#!">Products</a></h6>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-2 mb-3">
+                                    <h6 class="title font-bold"><a href="#!">Awards</a></h6>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-2 mb-3">
+                                    <h6 class="title font-bold"><a href="#!">Help</a></h6>
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-2 mb-3">
+                                    <h6 class="title font-bold"><a href="#!">Contact</a></h6>
+                                </div>
+                                <!--Grid column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <hr class="rgba-white-light" style="margin: 0 15%;">
+
+                            <!--Grid row-->
+                            <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+                                <!--Grid column-->
+                                <div class="col-md-8 col-12 mt-5">
+                                    <p style="line-height: 1.7rem">At Mobikart, we passionately believe in keeping our customer's interest on top of everything else. Our day begins and ends with the aim of keeping our customers happy and with that goal in mind we promise you our Band of Trust. Band of Trust comprises of our values with which we aim to consistently deliver a trusted shopping experience to all our customers:</p>
+
+                                </div>
+                                <!--Grid column-->
+
+                            </div>
+                            <!--Grid row-->
+
+                            <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+                            <!--Grid row-->
+                            <div class="row pb-3">
+
+                                <!--Grid column-->
+                                <div class="col-md-12">
+
+                                    <div class="footer-socials mb-5 flex-center">
+                                        <!--Facebook-->
+                                        <a class="icons-sm fb-ic"><i class="fa fa-facebook fa-lg white-text mr-md-4"> </i></a>
+                                        <!--Twitter-->
+                                        <a class="icons-sm tw-ic"><i class="fa fa-twitter fa-lg white-text mx-md-4"> </i></a>
+                                        <!--Google +-->
+                                        <a class="icons-sm gplus-ic"><i class="fa fa-google-plus fa-lg white-text mx-md-4"> </i></a>
+                                        <!--Linkedin-->
+                                        <a class="icons-sm li-ic"><i class="fa fa-linkedin fa-lg white-text mx-md-4"> </i></a>
+                                        <!--Instagram-->
+                                        <a class="icons-sm ins-ic"><i class="fa fa-instagram fa-lg white-text mx-md-4"> </i></a>
+                                        <!--Pinterest-->
+                                        <a class="icons-sm pin-ic"><i class="fa fa-pinterest fa-lg white-text ml-md-4"> </i></a>
+                                    </div>
+                                </div>
+                                <!--Grid column-->
+                            </div>
+                            <!--Grid row-->
+
+                        </div>
+                        <!--/Footer Links-->
+
+                        <!--Copyright-->
+                        <div class="footer-copyright" style="background-color: #663399" style="text-align:center">
+                            <div class="container-fluid">
+                                © 2021 Copyright: <a href="https://www.MDBootstrap.com"> Mobikart.com </a>
+                            </div>
+                        </div>
+                        <!--/Copyright-->
+
+                    </footer>
+                    <!--/Footer-->
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+            <hr class="my-4">
+
+        </div>
+</div>
+
+
+{% endblock %}

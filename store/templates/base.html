@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+  <title>Mobikart</title>
+
+  <style>
+    nav{
+      background-color: #F0FFFF;
+
+    }
+    .one-edge-shadow {
+              box-shadow: 0 8px 2px -5px rgb(142, 197, 233);
+    }
+    .a{
+font-family: 'Overpass';
+  font-style: italic;
+  font-weight: 100;
+  src: url(https://fonts.gstatic.com/s/overpass/v5/qFdD35WCmI96Ajtm81Gga7rayz8Ns1s.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+}
+
+
+
+.display-8{
+  font-weight: 200;
+  font-size: 30px;
+}
+body{
+background: #ee9ca7;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ffdde1, #ee9ca7);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ffdde1, #ee9ca7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.column{
+color: #616161
+}
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- navbar -->
+
+  <nav class="one-edge-shadow
+  sticky-top navbar navbar-expand-lg navbar-dark mb-4">
+      <img src="./static/sdp_logo.png" height="50" width="50" alt="avatar" style="border-radius: 50%">
+      &nbsp;&nbsp;&nbsp;&nbsp;
+    <a style="color: blue; class="navbar-brand" href="/">MOBIKART</a>
+    <button  style="color:blue" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a  style="color:blue" class="nav-link" href="/store">Store <span class="sr-only">(current)</span></a>
+        </li>
+          <li class="nav-item active">
+          <a  style="color:blue" class="nav-link" href="/statistics">Statistics  <span class="sr-only">(current)</span></a>
+        </li>
+        <div class="input-group">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">search</button>
+</div>
+      </ul>
+
+      <ul class=" navbar-nav my-2 my-lg-0">
+        <li class="dropdown show">
+  <a  style="color:blue" class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    All Products
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a  style="color:blue" class="dropdown-item" href="/">All Products</a>
+    {% for category in categories %}
+    <a  style="color:blue" class="dropdown-item" href="/?category={{category.id}}">{{category.name}}</a>
+    {% endfor %}
+  </div>
+</li>
+        <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/cart">Cart
+            <span class="badge badge-info">{{request.session.cart.keys|length}}</span>
+            <span class="sr-only">(current)</span></a>
+        </li>
+        {% if request.session.customer %}
+
+        <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/orders">Orders<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/logout">Logout<span class="sr-only">(current)</span></a>
+        </li>
+          <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/profile">Profile<span class="sr-only">(current)</span></a>
+        </li>
+        {% else %}
+
+        <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/signup">Signup<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a  style="color:blue" class="nav-link" href="/login">Login<span class="sr-only">(current)</span></a>
+        </li>
+        {% endif %}
+
+
+
+      </ul>
+
+
+    </div>
+  </nav>
+
+
+
+    {% block content %}{% endblock %}
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
