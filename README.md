@@ -7,3 +7,6 @@ We have a reccomadation engine in this website which gives you some reccomadatio
 
 
 ![Screenshot (435)](https://user-images.githubusercontent.com/74001038/132015278-f5695556-ba44-4ee2-8d0c-254d6587ffde.png)
+
+
+![Screenshot (438)](https://user-images.githubusercontent.com/74001038/132015414-ec1f2f42-49a1-46fd-b0fb-371d9533cb2e.png)
