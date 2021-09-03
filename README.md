@@ -3,3 +3,6 @@ It is a ecommerce application based on django python.In this website we sell mob
 
 
 ![Screenshot (435)](https://user-images.githubusercontent.com/74001038/132015850-b95786c6-f80e-4d03-a39a-9bbea37a0d24.png)
+
+![Screenshot (378)](https://user-images.githubusercontent.com/74001038/132016128-5ad2d50e-a4f6-48e3-a264-7356474bcfe2.png)
+
