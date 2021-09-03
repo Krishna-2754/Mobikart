@@ -4,3 +4,6 @@ It is a ecommerce application based on django python.In this website we sell mob
 I will be adding cryptography techniques for protective transactions.
 
 We have a reccomadation engine in this website which gives you some reccomadations.
+
+
+![Screenshot (435)](https://user-images.githubusercontent.com/74001038/132015278-f5695556-ba44-4ee2-8d0c-254d6587ffde.png)
