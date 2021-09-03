@@ -10,3 +10,8 @@ We have a reccomadation engine in this website which gives you some reccomadatio
 
 
 ![Screenshot (438)](https://user-images.githubusercontent.com/74001038/132015414-ec1f2f42-49a1-46fd-b0fb-371d9533cb2e.png)
+
+
+
+![Screenshot (385)](https://user-images.githubusercontent.com/74001038/132015595-f8b83366-3a66-4b48-861a-f2d722b139c2.png)
+
