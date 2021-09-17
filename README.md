@@ -4,6 +4,8 @@ It is a ecommerce application based on django python.In this website we sell mob
 
 ![Screenshot (435)](https://user-images.githubusercontent.com/74001038/132015850-b95786c6-f80e-4d03-a39a-9bbea37a0d24.png)
 
+![Screenshot (392)](https://user-images.githubusercontent.com/74001038/133722795-174fb116-fd9c-4d04-aaaf-7723a4af6e55.png)
+
 ![Screenshot (378)](https://user-images.githubusercontent.com/74001038/132016128-5ad2d50e-a4f6-48e3-a264-7356474bcfe2.png)
 
 ![Screenshot (601)](https://user-images.githubusercontent.com/74001038/133722737-ce5fd7e8-a81a-485d-8ffc-8d08a43902d5.png)
